@@ -5,7 +5,9 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { BadgeSize, BadgeVariant } from "./components/badge/badge";
 import { ButtonSize, ButtonType, ButtonVariant } from "./components/button/button";
+export { BadgeSize, BadgeVariant } from "./components/badge/badge";
 export { ButtonSize, ButtonType, ButtonVariant } from "./components/button/button";
 export namespace Components {
     interface MyComponent {
@@ -21,6 +23,22 @@ export namespace Components {
           * The middle name
          */
         "middle": string;
+    }
+    interface RdcBadge {
+        /**
+          * Fallback text when no default slot is provided.
+         */
+        "label"?: string;
+        /**
+          * Badge size.
+          * @default 'md'
+         */
+        "size": BadgeSize;
+        /**
+          * Visual style of the badge.
+          * @default 'primary'
+         */
+        "variant": BadgeVariant;
     }
     interface RdsButton {
         /**
@@ -60,6 +78,12 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLRdcBadgeElement extends Components.RdcBadge, HTMLStencilElement {
+    }
+    var HTMLRdcBadgeElement: {
+        prototype: HTMLRdcBadgeElement;
+        new (): HTMLRdcBadgeElement;
+    };
     interface HTMLRdsButtonElementEventMap {
         "rdsButtonClick": void;
     }
@@ -79,6 +103,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "rdc-badge": HTMLRdcBadgeElement;
         "rds-button": HTMLRdsButtonElement;
     }
 }
@@ -96,6 +121,22 @@ declare namespace LocalJSX {
           * The middle name
          */
         "middle"?: string;
+    }
+    interface RdcBadge {
+        /**
+          * Fallback text when no default slot is provided.
+         */
+        "label"?: string;
+        /**
+          * Badge size.
+          * @default 'md'
+         */
+        "size"?: BadgeSize;
+        /**
+          * Visual style of the badge.
+          * @default 'primary'
+         */
+        "variant"?: BadgeVariant;
     }
     interface RdsButton {
         /**
@@ -130,6 +171,11 @@ declare namespace LocalJSX {
         "middle": string;
         "last": string;
     }
+    interface RdcBadgeAttributes {
+        "variant": BadgeVariant;
+        "size": BadgeSize;
+        "label": string;
+    }
     interface RdsButtonAttributes {
         "variant": ButtonVariant;
         "size": ButtonSize;
@@ -140,6 +186,7 @@ declare namespace LocalJSX {
 
     interface IntrinsicElements {
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
+        "rdc-badge": Omit<RdcBadge, keyof RdcBadgeAttributes> & { [K in keyof RdcBadge & keyof RdcBadgeAttributes]?: RdcBadge[K] } & { [K in keyof RdcBadge & keyof RdcBadgeAttributes as `attr:${K}`]?: RdcBadgeAttributes[K] } & { [K in keyof RdcBadge & keyof RdcBadgeAttributes as `prop:${K}`]?: RdcBadge[K] };
         "rds-button": Omit<RdsButton, keyof RdsButtonAttributes> & { [K in keyof RdsButton & keyof RdsButtonAttributes]?: RdsButton[K] } & { [K in keyof RdsButton & keyof RdsButtonAttributes as `attr:${K}`]?: RdsButtonAttributes[K] } & { [K in keyof RdsButton & keyof RdsButtonAttributes as `prop:${K}`]?: RdsButton[K] };
     }
 }
@@ -148,6 +195,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "rdc-badge": LocalJSX.IntrinsicElements["rdc-badge"] & JSXBase.HTMLAttributes<HTMLRdcBadgeElement>;
             "rds-button": LocalJSX.IntrinsicElements["rds-button"] & JSXBase.HTMLAttributes<HTMLRdsButtonElement>;
         }
     }
