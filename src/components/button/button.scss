@@ -1,28 +1,26 @@
-@use '../../styles/index' as *;
-
 :host {
   display: inline-block;
 }
 
 .btn {
   appearance: none;
-  border-radius: $radius-md;
+  border-radius: var(--radius-md);
   border: 1px solid transparent;
-  padding: $button-padding-y-md $button-padding-x-md;
-  font-size: $button-font-size-md;
-  font-weight: $font-weight-semibold;
-  line-height: $button-line-height-md;
+  padding: var(--button-padding-y-md) var(--button-padding-x-md);
+  font-size: var(--button-font-size-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--button-line-height-md);
   background: transparent;
   color: inherit;
   cursor: pointer;
   user-select: none;
-  transition: background-color $transition-fast ease, border-color $transition-fast ease,
-    transform $transition-fast ease, box-shadow $transition-fast ease;
+  transition: background-color var(--transition-fast) ease, border-color var(--transition-fast) ease,
+    transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
 }
 
 .btn:focus-visible {
-  outline: $focus-outline-width solid $color-focus-ring;
-  outline-offset: $focus-outline-offset;
+  outline: var(--focus-outline-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-outline-offset);
 }
 
 .btn:active:not(:disabled) {
@@ -35,95 +33,95 @@
 }
 
 .btn.variant-primary {
-  background: $color-primary-500;
-  border-color: $color-primary-500;
-  color: $color-white;
+  background: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+  color: var(--color-white);
 }
 
 .btn.variant-primary:hover:not(:disabled) {
-  background: $color-primary-600;
-  border-color: $color-primary-600;
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-600);
 }
 
 .btn.variant-secondary {
-  background: $color-secondary-200;
-  border-color: $color-secondary-200;
-  color: $color-text-default;
+  background: var(--color-secondary-200);
+  border-color: var(--color-secondary-200);
+  color: var(--color-text-default);
 }
 
 .btn.variant-secondary:hover:not(:disabled) {
-  background: $color-secondary-300;
-  border-color: $color-secondary-300;
+  background: var(--color-secondary-300);
+  border-color: var(--color-secondary-300);
 }
 
 .btn.variant-ghost {
   background: transparent;
-  border-color: $color-neutral-500;
-  color: $color-text-default;
+  border-color: var(--color-neutral-500);
+  color: var(--color-text-default);
 }
 
 .btn.variant-ghost:hover:not(:disabled) {
-  background: $color-ghost-hover-bg;
+  background: var(--color-ghost-hover-bg);
 }
 
 .btn.variant-danger {
-  background: $color-danger-600;
-  border-color: $color-danger-600;
-  color: $color-white;
+  background: var(--color-danger-600);
+  border-color: var(--color-danger-600);
+  color: var(--color-white);
 }
 
 .btn.variant-danger:hover:not(:disabled) {
-  background: $color-danger-700;
-  border-color: $color-danger-700;
+  background: var(--color-danger-700);
+  border-color: var(--color-danger-700);
 }
 
 .btn.variant-warning {
-  background: $color-warning-500;
-  border-color: $color-warning-500;
-  color: $color-text-default;
+  background: var(--color-warning-500);
+  border-color: var(--color-warning-500);
+  color: var(--color-text-default);
 }
 
 .btn.variant-warning:hover:not(:disabled) {
-  background: $color-warning-600;
-  border-color: $color-warning-600;
+  background: var(--color-warning-600);
+  border-color: var(--color-warning-600);
 }
 
 .btn.variant-success {
-  background: $color-success-500;
-  border-color: $color-success-500;
-  color: $color-white;
+  background: var(--color-success-500);
+  border-color: var(--color-success-500);
+  color: var(--color-white);
 }
 
 .btn.variant-success:hover:not(:disabled) {
-  background: $color-success-700;
-  border-color: $color-success-700;
+  background: var(--color-success-700);
+  border-color: var(--color-success-700);
 }
 
 .btn.variant-info {
-  background: $color-info-500;
-  border-color: $color-info-500;
-  color: $color-white;
+  background: var(--color-info-500);
+  border-color: var(--color-info-500);
+  color: var(--color-white);
 }
 
 .btn.variant-info:hover:not(:disabled) {
-  background: $color-info-600;
-  border-color: $color-info-600;
+  background: var(--color-info-600);
+  border-color: var(--color-info-600);
 }
 
 .btn.size-sm {
-  padding: $button-padding-y-sm $button-padding-x-sm;
-  font-size: $button-font-size-sm;
-  line-height: $button-line-height-sm;
+  padding: var(--button-padding-y-sm) var(--button-padding-x-sm);
+  font-size: var(--button-font-size-sm);
+  line-height: var(--button-line-height-sm);
 }
 
 .btn.size-md {
-  padding: $button-padding-y-md $button-padding-x-md;
-  font-size: $button-font-size-md;
+  padding: var(--button-padding-y-md) var(--button-padding-x-md);
+  font-size: var(--button-font-size-md);
 }
 
 .btn.size-lg {
-  padding: $button-padding-y-lg $button-padding-x-lg;
-  font-size: $button-font-size-lg;
-  line-height: $button-line-height-lg;
+  padding: var(--button-padding-y-lg) var(--button-padding-x-lg);
+  font-size: var(--button-font-size-lg);
+  line-height: var(--button-line-height-lg);
 }
 

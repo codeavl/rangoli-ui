@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'rangoli-ui',
+  globalStyle: 'src/styles/_tokens.css',
   outputTargets: [
     {
       type: 'dist',
