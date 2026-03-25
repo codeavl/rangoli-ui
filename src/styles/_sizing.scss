@@ -1,0 +1,22 @@
+// Design tokens: sizing (typography + component metrics)
+
+@use './spacing' as *;
+
+$font-weight-semibold: 600;
+
+// Button sizing (matches existing `rds-button` styles)
+$button-font-size-sm: 0.75rem;
+$button-line-height-sm: 1rem;
+$button-padding-y-sm: $space-1;
+$button-padding-x-sm: $space-3;
+
+$button-font-size-md: 0.875rem;
+$button-line-height-md: 1.25rem;
+$button-padding-y-md: $space-2;
+$button-padding-x-md: $space-4;
+
+$button-font-size-lg: 1rem;
+$button-line-height-lg: 1.5rem;
+$button-padding-y-lg: $space-3;
+$button-padding-x-lg: $space-5;
+

@@ -1,0 +1,38 @@
+// Design tokens: colors (hex codes)
+
+$color-white: #ffffff;
+
+// Primary
+$color-primary-500: #2563eb;
+$color-primary-600: #1d4ed8;
+
+// Secondary (neutral gray palette)
+$color-secondary-200: #e5e7eb;
+$color-secondary-300: #d1d5db;
+
+// Neutral ink
+$color-text-default: #111827;
+$color-neutral-500: #9ca3af;
+
+// Danger
+$color-danger-600: #dc2626;
+$color-danger-700: #b91c1c;
+
+// Warning
+$color-warning-500: #f59e0b;
+$color-warning-600: #d97706;
+
+// Success
+$color-success-500: #16a34a;
+$color-success-700: #15803d;
+
+// Info
+$color-info-500: #0ea5e9;
+$color-info-600: #0284c7;
+
+// Focus ring (rgba(37, 99, 235, 0.6) -> #2563eb99)
+$color-focus-ring: #2563eb99;
+
+// Ghost hover background (rgba(156, 163, 175, 0.15) -> #9ca3af26)
+$color-ghost-hover-bg: #9ca3af26;
+

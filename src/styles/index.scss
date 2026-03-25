@@ -1,0 +1,10 @@
+// Central design-tokens entrypoint.
+// Components can `@use '../../styles/index' as *;` to access shared tokens.
+
+@forward 'colors';
+@forward 'spacing';
+@forward 'radii';
+@forward 'sizing';
+@forward 'motion';
+@forward 'focus';
+

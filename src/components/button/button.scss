@@ -1,26 +1,28 @@
+@use '../../styles/index' as *;
+
 :host {
   display: inline-block;
 }
 
 .btn {
   appearance: none;
-  border-radius: 0.375rem;
+  border-radius: $radius-md;
   border: 1px solid transparent;
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.25rem;
+  padding: $button-padding-y-md $button-padding-x-md;
+  font-size: $button-font-size-md;
+  font-weight: $font-weight-semibold;
+  line-height: $button-line-height-md;
   background: transparent;
   color: inherit;
   cursor: pointer;
   user-select: none;
-  transition: background-color 120ms ease, border-color 120ms ease, transform 120ms ease,
-    box-shadow 120ms ease;
+  transition: background-color $transition-fast ease, border-color $transition-fast ease,
+    transform $transition-fast ease, box-shadow $transition-fast ease;
 }
 
 .btn:focus-visible {
-  outline: 2px solid rgba(37, 99, 235, 0.6);
-  outline-offset: 2px;
+  outline: $focus-outline-width solid $color-focus-ring;
+  outline-offset: $focus-outline-offset;
 }
 
 .btn:active:not(:disabled) {
@@ -33,95 +35,95 @@
 }
 
 .btn.variant-primary {
-  background: #2563eb;
-  border-color: #2563eb;
-  color: white;
+  background: $color-primary-500;
+  border-color: $color-primary-500;
+  color: $color-white;
 }
 
 .btn.variant-primary:hover:not(:disabled) {
-  background: #1d4ed8;
-  border-color: #1d4ed8;
+  background: $color-primary-600;
+  border-color: $color-primary-600;
 }
 
 .btn.variant-secondary {
-  background: #e5e7eb;
-  border-color: #e5e7eb;
-  color: #111827;
+  background: $color-secondary-200;
+  border-color: $color-secondary-200;
+  color: $color-text-default;
 }
 
 .btn.variant-secondary:hover:not(:disabled) {
-  background: #d1d5db;
-  border-color: #d1d5db;
+  background: $color-secondary-300;
+  border-color: $color-secondary-300;
 }
 
 .btn.variant-ghost {
   background: transparent;
-  border-color: #9ca3af;
-  color: #111827;
+  border-color: $color-neutral-500;
+  color: $color-text-default;
 }
 
 .btn.variant-ghost:hover:not(:disabled) {
-  background: rgba(156, 163, 175, 0.15);
+  background: $color-ghost-hover-bg;
 }
 
 .btn.variant-danger {
-  background: #dc2626;
-  border-color: #dc2626;
-  color: white;
+  background: $color-danger-600;
+  border-color: $color-danger-600;
+  color: $color-white;
 }
 
 .btn.variant-danger:hover:not(:disabled) {
-  background: #b91c1c;
-  border-color: #b91c1c;
+  background: $color-danger-700;
+  border-color: $color-danger-700;
 }
 
 .btn.variant-warning {
-  background: #f59e0b;
-  border-color: #f59e0b;
-  color: #111827;
+  background: $color-warning-500;
+  border-color: $color-warning-500;
+  color: $color-text-default;
 }
 
 .btn.variant-warning:hover:not(:disabled) {
-  background: #d97706;
-  border-color: #d97706;
+  background: $color-warning-600;
+  border-color: $color-warning-600;
 }
 
 .btn.variant-success {
-  background: #16a34a;
-  border-color: #16a34a;
-  color: white;
+  background: $color-success-500;
+  border-color: $color-success-500;
+  color: $color-white;
 }
 
 .btn.variant-success:hover:not(:disabled) {
-  background: #15803d;
-  border-color: #15803d;
+  background: $color-success-700;
+  border-color: $color-success-700;
 }
 
 .btn.variant-info {
-  background: #0ea5e9;
-  border-color: #0ea5e9;
-  color: white;
+  background: $color-info-500;
+  border-color: $color-info-500;
+  color: $color-white;
 }
 
 .btn.variant-info:hover:not(:disabled) {
-  background: #0284c7;
-  border-color: #0284c7;
+  background: $color-info-600;
+  border-color: $color-info-600;
 }
 
 .btn.size-sm {
-  padding: 0.25rem 0.75rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
+  padding: $button-padding-y-sm $button-padding-x-sm;
+  font-size: $button-font-size-sm;
+  line-height: $button-line-height-sm;
 }
 
 .btn.size-md {
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
+  padding: $button-padding-y-md $button-padding-x-md;
+  font-size: $button-font-size-md;
 }
 
 .btn.size-lg {
-  padding: 0.75rem 1.25rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  padding: $button-padding-y-lg $button-padding-x-lg;
+  font-size: $button-font-size-lg;
+  line-height: $button-line-height-lg;
 }
 
