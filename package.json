@@ -36,13 +36,20 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil-test",
     "test:watch": "stencil-test --watch",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "storybook": "npm run build && storybook dev -p 6006 -c .storybook --no-open",
+    "build-storybook": "npm run build && storybook build -c .storybook"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.7",
     "@stencil/core": "^4.27.1",
     "@stencil/vitest": "^1.8.3",
+    "@storybook/addon-essentials": "8.6.14",
+    "@storybook/web-components": "8.6.14",
+    "@storybook/web-components-vite": "^8.6.14",
     "@types/node": "^22.13.5",
     "@vitest/browser-playwright": "^4.0.0",
+    "lit-html": "latest",
     "vitest": "^4.0.0"
   },
   "license": "MIT"

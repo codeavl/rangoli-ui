@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ButtonSize, ButtonType, ButtonVariant } from "./components/button/button";
+export { ButtonSize, ButtonType, ButtonVariant } from "./components/button/button";
 export namespace Components {
     interface MyComponent {
         /**
@@ -20,6 +22,36 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface RdsButton {
+        /**
+          * Native button type attribute.
+          * @default 'button'
+         */
+        "buttonType": ButtonType;
+        /**
+          * Disables the button.
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Fallback text when no default slot is provided.
+         */
+        "label"?: string;
+        /**
+          * Button size.
+          * @default 'md'
+         */
+        "size": ButtonSize;
+        /**
+          * Visual style of the button.
+          * @default 'primary'
+         */
+        "variant": ButtonVariant;
+    }
+}
+export interface RdsButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRdsButtonElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +60,26 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLRdsButtonElementEventMap {
+        "rdsButtonClick": void;
+    }
+    interface HTMLRdsButtonElement extends Components.RdsButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRdsButtonElementEventMap>(type: K, listener: (this: HTMLRdsButtonElement, ev: RdsButtonCustomEvent<HTMLRdsButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRdsButtonElementEventMap>(type: K, listener: (this: HTMLRdsButtonElement, ev: RdsButtonCustomEvent<HTMLRdsButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRdsButtonElement: {
+        prototype: HTMLRdsButtonElement;
+        new (): HTMLRdsButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "rds-button": HTMLRdsButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,15 +97,50 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface RdsButton {
+        /**
+          * Native button type attribute.
+          * @default 'button'
+         */
+        "buttonType"?: ButtonType;
+        /**
+          * Disables the button.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Fallback text when no default slot is provided.
+         */
+        "label"?: string;
+        "onRdsButtonClick"?: (event: RdsButtonCustomEvent<void>) => void;
+        /**
+          * Button size.
+          * @default 'md'
+         */
+        "size"?: ButtonSize;
+        /**
+          * Visual style of the button.
+          * @default 'primary'
+         */
+        "variant"?: ButtonVariant;
+    }
 
     interface MyComponentAttributes {
         "first": string;
         "middle": string;
         "last": string;
     }
+    interface RdsButtonAttributes {
+        "variant": ButtonVariant;
+        "size": ButtonSize;
+        "disabled": boolean;
+        "buttonType": ButtonType;
+        "label": string;
+    }
 
     interface IntrinsicElements {
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
+        "rds-button": Omit<RdsButton, keyof RdsButtonAttributes> & { [K in keyof RdsButton & keyof RdsButtonAttributes]?: RdsButton[K] } & { [K in keyof RdsButton & keyof RdsButtonAttributes as `attr:${K}`]?: RdsButtonAttributes[K] } & { [K in keyof RdsButton & keyof RdsButtonAttributes as `prop:${K}`]?: RdsButton[K] };
     }
 }
 export { LocalJSX as JSX };
@@ -63,6 +148,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "rds-button": LocalJSX.IntrinsicElements["rds-button"] & JSXBase.HTMLAttributes<HTMLRdsButtonElement>;
         }
     }
 }
