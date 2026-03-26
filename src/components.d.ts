@@ -5,16 +5,18 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { AvatarShapeVariant, AvatarSize } from "./components/avatar/avatar";
 import { BadgeSize, BadgeVariant, IconPlacement } from "./components/badge/badge";
-import { ChipSize, ChipVariant } from "./components/chip/chip";
-import { IconColor, IconSize } from "./components/icon/icon";
 import { ButtonSize, ButtonType, ButtonVariant, IconPlacement as IconPlacement1 } from "./components/button/button";
 import { ButtonGroupOrientation, ButtonGroupSize } from "./components/button-group/button-group";
+import { ChipSize, ChipVariant } from "./components/chip/chip";
+import { IconColor, IconSize } from "./components/icon/icon";
+export { AvatarShapeVariant, AvatarSize } from "./components/avatar/avatar";
 export { BadgeSize, BadgeVariant, IconPlacement } from "./components/badge/badge";
-export { ChipSize, ChipVariant } from "./components/chip/chip";
-export { IconColor, IconSize } from "./components/icon/icon";
 export { ButtonSize, ButtonType, ButtonVariant, IconPlacement as IconPlacement1 } from "./components/button/button";
 export { ButtonGroupOrientation, ButtonGroupSize } from "./components/button-group/button-group";
+export { ChipSize, ChipVariant } from "./components/chip/chip";
+export { IconColor, IconSize } from "./components/icon/icon";
 export namespace Components {
     interface MyComponent {
         /**
@@ -30,7 +32,39 @@ export namespace Components {
          */
         "middle": string;
     }
-    interface RdcBadge {
+    interface RdsAvatar {
+        /**
+          * Alternative text for image.
+         */
+        "alt"?: string;
+        /**
+          * Background color for initials (CSS color value or color name).
+         */
+        "backgroundColor"?: string;
+        /**
+          * First name of the person (used for initials fallback).
+         */
+        "firstName"?: string;
+        /**
+          * Last name of the person (used for initials fallback).
+         */
+        "lastName"?: string;
+        /**
+          * Avatar shape variant.
+          * @default 'circle'
+         */
+        "shapeVariant": AvatarShapeVariant;
+        /**
+          * Avatar size.
+          * @default 'md'
+         */
+        "size": AvatarSize;
+        /**
+          * Avatar image source URL.
+         */
+        "src"?: string;
+    }
+    interface RdsBadge {
         /**
           * Bootstrap icon name to display in the badge.
          */
@@ -54,62 +88,6 @@ export namespace Components {
           * @default 'primary'
          */
         "variant": BadgeVariant;
-    }
-    interface RdcChip {
-        /**
-          * ARIA label for the close button.
-          * @default 'Remove chip'
-         */
-        "closeAriaLabel": string;
-        /**
-          * Bootstrap icon name for the close button.
-          * @default 'x-circle'
-         */
-        "closeIconName": string;
-        /**
-          * Show close/delete button.
-          * @default false
-         */
-        "deletable": boolean;
-        /**
-          * Fallback text when no default slot is provided.
-         */
-        "label"?: string;
-        /**
-          * Chip size.
-          * @default 'md'
-         */
-        "size": ChipSize;
-        /**
-          * Visual style of the chip.
-          * @default 'primary'
-         */
-        "variant": ChipVariant;
-    }
-    interface RdcIcon {
-        /**
-          * ARIA label for accessibility.
-         */
-        "ariaLabel"?: string;
-        /**
-          * Custom CSS class to apply to the icon.
-         */
-        "class"?: string;
-        /**
-          * Icon color variant.
-          * @default 'inherit'
-         */
-        "color": IconColor;
-        /**
-          * The name of the bootstrap icon to display.
-          * @example "heart", "check-circle", "bell-fill"
-         */
-        "name": string;
-        /**
-          * Icon size.
-          * @default 'md'
-         */
-        "size": IconSize;
     }
     interface RdsButton {
         /**
@@ -167,14 +145,70 @@ export namespace Components {
          */
         "size": ButtonGroupSize;
     }
-}
-export interface RdcChipCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLRdcChipElement;
+    interface RdsChip {
+        /**
+          * ARIA label for the close button.
+          * @default 'Remove chip'
+         */
+        "closeAriaLabel": string;
+        /**
+          * Bootstrap icon name for the close button.
+          * @default 'x-circle'
+         */
+        "closeIconName": string;
+        /**
+          * Show close/delete button.
+          * @default false
+         */
+        "deletable": boolean;
+        /**
+          * Fallback text when no default slot is provided.
+         */
+        "label"?: string;
+        /**
+          * Chip size.
+          * @default 'md'
+         */
+        "size": ChipSize;
+        /**
+          * Visual style of the chip.
+          * @default 'primary'
+         */
+        "variant": ChipVariant;
+    }
+    interface RdsIcon {
+        /**
+          * ARIA label for accessibility.
+         */
+        "ariaLabel"?: string;
+        /**
+          * Custom CSS class to apply to the icon.
+         */
+        "class"?: string;
+        /**
+          * Icon color variant.
+          * @default 'inherit'
+         */
+        "color": IconColor;
+        /**
+          * The name of the bootstrap icon to display.
+          * @example "heart", "check-circle", "bell-fill"
+         */
+        "name": string;
+        /**
+          * Icon size.
+          * @default 'md'
+         */
+        "size": IconSize;
+    }
 }
 export interface RdsButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRdsButtonElement;
+}
+export interface RdsChipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRdsChipElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -183,34 +217,17 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
-    interface HTMLRdcBadgeElement extends Components.RdcBadge, HTMLStencilElement {
+    interface HTMLRdsAvatarElement extends Components.RdsAvatar, HTMLStencilElement {
     }
-    var HTMLRdcBadgeElement: {
-        prototype: HTMLRdcBadgeElement;
-        new (): HTMLRdcBadgeElement;
+    var HTMLRdsAvatarElement: {
+        prototype: HTMLRdsAvatarElement;
+        new (): HTMLRdsAvatarElement;
     };
-    interface HTMLRdcChipElementEventMap {
-        "rdcChipClose": void;
+    interface HTMLRdsBadgeElement extends Components.RdsBadge, HTMLStencilElement {
     }
-    interface HTMLRdcChipElement extends Components.RdcChip, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLRdcChipElementEventMap>(type: K, listener: (this: HTMLRdcChipElement, ev: RdcChipCustomEvent<HTMLRdcChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLRdcChipElementEventMap>(type: K, listener: (this: HTMLRdcChipElement, ev: RdcChipCustomEvent<HTMLRdcChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLRdcChipElement: {
-        prototype: HTMLRdcChipElement;
-        new (): HTMLRdcChipElement;
-    };
-    interface HTMLRdcIconElement extends Components.RdcIcon, HTMLStencilElement {
-    }
-    var HTMLRdcIconElement: {
-        prototype: HTMLRdcIconElement;
-        new (): HTMLRdcIconElement;
+    var HTMLRdsBadgeElement: {
+        prototype: HTMLRdsBadgeElement;
+        new (): HTMLRdsBadgeElement;
     };
     interface HTMLRdsButtonElementEventMap {
         "rdsButtonClick": void;
@@ -235,13 +252,37 @@ declare global {
         prototype: HTMLRdsButtonGroupElement;
         new (): HTMLRdsButtonGroupElement;
     };
+    interface HTMLRdsChipElementEventMap {
+        "rdsChipClose": void;
+    }
+    interface HTMLRdsChipElement extends Components.RdsChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRdsChipElementEventMap>(type: K, listener: (this: HTMLRdsChipElement, ev: RdsChipCustomEvent<HTMLRdsChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRdsChipElementEventMap>(type: K, listener: (this: HTMLRdsChipElement, ev: RdsChipCustomEvent<HTMLRdsChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRdsChipElement: {
+        prototype: HTMLRdsChipElement;
+        new (): HTMLRdsChipElement;
+    };
+    interface HTMLRdsIconElement extends Components.RdsIcon, HTMLStencilElement {
+    }
+    var HTMLRdsIconElement: {
+        prototype: HTMLRdsIconElement;
+        new (): HTMLRdsIconElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
-        "rdc-badge": HTMLRdcBadgeElement;
-        "rdc-chip": HTMLRdcChipElement;
-        "rdc-icon": HTMLRdcIconElement;
+        "rds-avatar": HTMLRdsAvatarElement;
+        "rds-badge": HTMLRdsBadgeElement;
         "rds-button": HTMLRdsButtonElement;
         "rds-button-group": HTMLRdsButtonGroupElement;
+        "rds-chip": HTMLRdsChipElement;
+        "rds-icon": HTMLRdsIconElement;
     }
 }
 declare namespace LocalJSX {
@@ -261,7 +302,39 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
-    interface RdcBadge {
+    interface RdsAvatar {
+        /**
+          * Alternative text for image.
+         */
+        "alt"?: string;
+        /**
+          * Background color for initials (CSS color value or color name).
+         */
+        "backgroundColor"?: string;
+        /**
+          * First name of the person (used for initials fallback).
+         */
+        "firstName"?: string;
+        /**
+          * Last name of the person (used for initials fallback).
+         */
+        "lastName"?: string;
+        /**
+          * Avatar shape variant.
+          * @default 'circle'
+         */
+        "shapeVariant"?: AvatarShapeVariant;
+        /**
+          * Avatar size.
+          * @default 'md'
+         */
+        "size"?: AvatarSize;
+        /**
+          * Avatar image source URL.
+         */
+        "src"?: string;
+    }
+    interface RdsBadge {
         /**
           * Bootstrap icon name to display in the badge.
          */
@@ -285,66 +358,6 @@ declare namespace LocalJSX {
           * @default 'primary'
          */
         "variant"?: BadgeVariant;
-    }
-    interface RdcChip {
-        /**
-          * ARIA label for the close button.
-          * @default 'Remove chip'
-         */
-        "closeAriaLabel"?: string;
-        /**
-          * Bootstrap icon name for the close button.
-          * @default 'x-circle'
-         */
-        "closeIconName"?: string;
-        /**
-          * Show close/delete button.
-          * @default false
-         */
-        "deletable"?: boolean;
-        /**
-          * Fallback text when no default slot is provided.
-         */
-        "label"?: string;
-        /**
-          * Event emitted when close button is clicked.
-         */
-        "onRdcChipClose"?: (event: RdcChipCustomEvent<void>) => void;
-        /**
-          * Chip size.
-          * @default 'md'
-         */
-        "size"?: ChipSize;
-        /**
-          * Visual style of the chip.
-          * @default 'primary'
-         */
-        "variant"?: ChipVariant;
-    }
-    interface RdcIcon {
-        /**
-          * ARIA label for accessibility.
-         */
-        "ariaLabel"?: string;
-        /**
-          * Custom CSS class to apply to the icon.
-         */
-        "class"?: string;
-        /**
-          * Icon color variant.
-          * @default 'inherit'
-         */
-        "color"?: IconColor;
-        /**
-          * The name of the bootstrap icon to display.
-          * @example "heart", "check-circle", "bell-fill"
-         */
-        "name": string;
-        /**
-          * Icon size.
-          * @default 'md'
-         */
-        "size"?: IconSize;
     }
     interface RdsButton {
         /**
@@ -403,33 +416,87 @@ declare namespace LocalJSX {
          */
         "size"?: ButtonGroupSize;
     }
+    interface RdsChip {
+        /**
+          * ARIA label for the close button.
+          * @default 'Remove chip'
+         */
+        "closeAriaLabel"?: string;
+        /**
+          * Bootstrap icon name for the close button.
+          * @default 'x-circle'
+         */
+        "closeIconName"?: string;
+        /**
+          * Show close/delete button.
+          * @default false
+         */
+        "deletable"?: boolean;
+        /**
+          * Fallback text when no default slot is provided.
+         */
+        "label"?: string;
+        /**
+          * Event emitted when close button is clicked.
+         */
+        "onRdsChipClose"?: (event: RdsChipCustomEvent<void>) => void;
+        /**
+          * Chip size.
+          * @default 'md'
+         */
+        "size"?: ChipSize;
+        /**
+          * Visual style of the chip.
+          * @default 'primary'
+         */
+        "variant"?: ChipVariant;
+    }
+    interface RdsIcon {
+        /**
+          * ARIA label for accessibility.
+         */
+        "ariaLabel"?: string;
+        /**
+          * Custom CSS class to apply to the icon.
+         */
+        "class"?: string;
+        /**
+          * Icon color variant.
+          * @default 'inherit'
+         */
+        "color"?: IconColor;
+        /**
+          * The name of the bootstrap icon to display.
+          * @example "heart", "check-circle", "bell-fill"
+         */
+        "name": string;
+        /**
+          * Icon size.
+          * @default 'md'
+         */
+        "size"?: IconSize;
+    }
 
     interface MyComponentAttributes {
         "first": string;
         "middle": string;
         "last": string;
     }
-    interface RdcBadgeAttributes {
+    interface RdsAvatarAttributes {
+        "src": string;
+        "firstName": string;
+        "lastName": string;
+        "size": AvatarSize;
+        "shapeVariant": AvatarShapeVariant;
+        "alt": string;
+        "backgroundColor": string;
+    }
+    interface RdsBadgeAttributes {
         "variant": BadgeVariant;
         "size": BadgeSize;
         "label": string;
         "iconName": string;
         "iconPlacement": IconPlacement;
-    }
-    interface RdcChipAttributes {
-        "variant": ChipVariant;
-        "size": ChipSize;
-        "label": string;
-        "deletable": boolean;
-        "closeIconName": string;
-        "closeAriaLabel": string;
-    }
-    interface RdcIconAttributes {
-        "name": string;
-        "size": IconSize;
-        "color": IconColor;
-        "class": string;
-        "ariaLabel": string;
     }
     interface RdsButtonAttributes {
         "variant": ButtonVariant;
@@ -446,14 +513,30 @@ declare namespace LocalJSX {
         "label": string;
         "disabled": boolean;
     }
+    interface RdsChipAttributes {
+        "variant": ChipVariant;
+        "size": ChipSize;
+        "label": string;
+        "deletable": boolean;
+        "closeIconName": string;
+        "closeAriaLabel": string;
+    }
+    interface RdsIconAttributes {
+        "name": string;
+        "size": IconSize;
+        "color": IconColor;
+        "class": string;
+        "ariaLabel": string;
+    }
 
     interface IntrinsicElements {
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
-        "rdc-badge": Omit<RdcBadge, keyof RdcBadgeAttributes> & { [K in keyof RdcBadge & keyof RdcBadgeAttributes]?: RdcBadge[K] } & { [K in keyof RdcBadge & keyof RdcBadgeAttributes as `attr:${K}`]?: RdcBadgeAttributes[K] } & { [K in keyof RdcBadge & keyof RdcBadgeAttributes as `prop:${K}`]?: RdcBadge[K] };
-        "rdc-chip": Omit<RdcChip, keyof RdcChipAttributes> & { [K in keyof RdcChip & keyof RdcChipAttributes]?: RdcChip[K] } & { [K in keyof RdcChip & keyof RdcChipAttributes as `attr:${K}`]?: RdcChipAttributes[K] } & { [K in keyof RdcChip & keyof RdcChipAttributes as `prop:${K}`]?: RdcChip[K] };
-        "rdc-icon": Omit<RdcIcon, keyof RdcIconAttributes> & { [K in keyof RdcIcon & keyof RdcIconAttributes]?: RdcIcon[K] } & { [K in keyof RdcIcon & keyof RdcIconAttributes as `attr:${K}`]?: RdcIconAttributes[K] } & { [K in keyof RdcIcon & keyof RdcIconAttributes as `prop:${K}`]?: RdcIcon[K] } & OneOf<"name", RdcIcon["name"], RdcIconAttributes["name"]>;
+        "rds-avatar": Omit<RdsAvatar, keyof RdsAvatarAttributes> & { [K in keyof RdsAvatar & keyof RdsAvatarAttributes]?: RdsAvatar[K] } & { [K in keyof RdsAvatar & keyof RdsAvatarAttributes as `attr:${K}`]?: RdsAvatarAttributes[K] } & { [K in keyof RdsAvatar & keyof RdsAvatarAttributes as `prop:${K}`]?: RdsAvatar[K] };
+        "rds-badge": Omit<RdsBadge, keyof RdsBadgeAttributes> & { [K in keyof RdsBadge & keyof RdsBadgeAttributes]?: RdsBadge[K] } & { [K in keyof RdsBadge & keyof RdsBadgeAttributes as `attr:${K}`]?: RdsBadgeAttributes[K] } & { [K in keyof RdsBadge & keyof RdsBadgeAttributes as `prop:${K}`]?: RdsBadge[K] };
         "rds-button": Omit<RdsButton, keyof RdsButtonAttributes> & { [K in keyof RdsButton & keyof RdsButtonAttributes]?: RdsButton[K] } & { [K in keyof RdsButton & keyof RdsButtonAttributes as `attr:${K}`]?: RdsButtonAttributes[K] } & { [K in keyof RdsButton & keyof RdsButtonAttributes as `prop:${K}`]?: RdsButton[K] };
         "rds-button-group": Omit<RdsButtonGroup, keyof RdsButtonGroupAttributes> & { [K in keyof RdsButtonGroup & keyof RdsButtonGroupAttributes]?: RdsButtonGroup[K] } & { [K in keyof RdsButtonGroup & keyof RdsButtonGroupAttributes as `attr:${K}`]?: RdsButtonGroupAttributes[K] } & { [K in keyof RdsButtonGroup & keyof RdsButtonGroupAttributes as `prop:${K}`]?: RdsButtonGroup[K] };
+        "rds-chip": Omit<RdsChip, keyof RdsChipAttributes> & { [K in keyof RdsChip & keyof RdsChipAttributes]?: RdsChip[K] } & { [K in keyof RdsChip & keyof RdsChipAttributes as `attr:${K}`]?: RdsChipAttributes[K] } & { [K in keyof RdsChip & keyof RdsChipAttributes as `prop:${K}`]?: RdsChip[K] };
+        "rds-icon": Omit<RdsIcon, keyof RdsIconAttributes> & { [K in keyof RdsIcon & keyof RdsIconAttributes]?: RdsIcon[K] } & { [K in keyof RdsIcon & keyof RdsIconAttributes as `attr:${K}`]?: RdsIconAttributes[K] } & { [K in keyof RdsIcon & keyof RdsIconAttributes as `prop:${K}`]?: RdsIcon[K] } & OneOf<"name", RdsIcon["name"], RdsIconAttributes["name"]>;
     }
 }
 export { LocalJSX as JSX };
@@ -461,11 +544,12 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "rdc-badge": LocalJSX.IntrinsicElements["rdc-badge"] & JSXBase.HTMLAttributes<HTMLRdcBadgeElement>;
-            "rdc-chip": LocalJSX.IntrinsicElements["rdc-chip"] & JSXBase.HTMLAttributes<HTMLRdcChipElement>;
-            "rdc-icon": LocalJSX.IntrinsicElements["rdc-icon"] & JSXBase.HTMLAttributes<HTMLRdcIconElement>;
+            "rds-avatar": LocalJSX.IntrinsicElements["rds-avatar"] & JSXBase.HTMLAttributes<HTMLRdsAvatarElement>;
+            "rds-badge": LocalJSX.IntrinsicElements["rds-badge"] & JSXBase.HTMLAttributes<HTMLRdsBadgeElement>;
             "rds-button": LocalJSX.IntrinsicElements["rds-button"] & JSXBase.HTMLAttributes<HTMLRdsButtonElement>;
             "rds-button-group": LocalJSX.IntrinsicElements["rds-button-group"] & JSXBase.HTMLAttributes<HTMLRdsButtonGroupElement>;
+            "rds-chip": LocalJSX.IntrinsicElements["rds-chip"] & JSXBase.HTMLAttributes<HTMLRdsChipElement>;
+            "rds-icon": LocalJSX.IntrinsicElements["rds-icon"] & JSXBase.HTMLAttributes<HTMLRdsIconElement>;
         }
     }
 }

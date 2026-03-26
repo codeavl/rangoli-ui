@@ -36,12 +36,12 @@ Design system button component.
 
 ### Depends on
 
-- [rdc-icon](../icon)
+- [rds-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  rds-button --> rdc-icon
+  rds-button --> rds-icon
   style rds-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

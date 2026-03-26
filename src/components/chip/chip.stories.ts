@@ -54,14 +54,14 @@ const Template = (args: {
   closeIconName: string;
   closeAriaLabel: string;
 }) => html`
-  <rdc-chip
+  <rds-chip
     variant=${args.variant}
     size=${args.size}
     label=${args.label}
     ?deletable=${args.deletable}
     close-icon-name=${args.closeIconName}
     close-aria-label=${args.closeAriaLabel}
-  ></rdc-chip>
+  ></rds-chip>
 `;
 
 export const Playground = Template.bind({});
@@ -132,69 +132,69 @@ Info.args = {
 
 export const Sizes = () => html`
   <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-    <rdc-chip size="sm" label="Small"></rdc-chip>
-    <rdc-chip size="md" label="Medium"></rdc-chip>
-    <rdc-chip size="lg" label="Large"></rdc-chip>
+    <rds-chip size="sm" label="Small"></rds-chip>
+    <rds-chip size="md" label="Medium"></rds-chip>
+    <rds-chip size="lg" label="Large"></rds-chip>
   </div>
 `;
 
 export const AllVariants = () => html`
   <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-    <rdc-chip variant="primary" label="Primary"></rdc-chip>
-    <rdc-chip variant="secondary" label="Secondary"></rdc-chip>
-    <rdc-chip variant="ghost" label="Ghost"></rdc-chip>
-    <rdc-chip variant="danger" label="Danger"></rdc-chip>
-    <rdc-chip variant="warning" label="Warning"></rdc-chip>
-    <rdc-chip variant="success" label="Success"></rdc-chip>
-    <rdc-chip variant="info" label="Info"></rdc-chip>
+    <rds-chip variant="primary" label="Primary"></rds-chip>
+    <rds-chip variant="secondary" label="Secondary"></rds-chip>
+    <rds-chip variant="ghost" label="Ghost"></rds-chip>
+    <rds-chip variant="danger" label="Danger"></rds-chip>
+    <rds-chip variant="warning" label="Warning"></rds-chip>
+    <rds-chip variant="success" label="Success"></rds-chip>
+    <rds-chip variant="info" label="Info"></rds-chip>
   </div>
 `;
 
 export const Deletable = () => html`
   <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-    <rdc-chip variant="primary" label="React" deletable></rdc-chip>
-    <rdc-chip variant="secondary" label="Vue" deletable></rdc-chip>
-    <rdc-chip variant="success" label="Angular" deletable></rdc-chip>
-    <rdc-chip variant="danger" label="Svelte" deletable></rdc-chip>
+    <rds-chip variant="primary" label="React" deletable></rds-chip>
+    <rds-chip variant="secondary" label="Vue" deletable></rds-chip>
+    <rds-chip variant="success" label="Angular" deletable></rds-chip>
+    <rds-chip variant="danger" label="Svelte" deletable></rds-chip>
   </div>
 `;
 
 export const DeletableBySize = () => html`
   <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-    <rdc-chip size="sm" label="Small" deletable></rdc-chip>
-    <rdc-chip size="md" label="Medium" deletable></rdc-chip>
-    <rdc-chip size="lg" label="Large" deletable></rdc-chip>
+    <rds-chip size="sm" label="Small" deletable></rds-chip>
+    <rds-chip size="md" label="Medium" deletable></rds-chip>
+    <rds-chip size="lg" label="Large" deletable></rds-chip>
   </div>
 `;
 
 export const Tags = () => html`
   <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
-    <rdc-chip variant="primary" size="md" label="React" deletable></rdc-chip>
-    <rdc-chip variant="secondary" size="md" label="TypeScript" deletable></rdc-chip>
-    <rdc-chip variant="info" size="md" label="Stencil" deletable></rdc-chip>
-    <rdc-chip variant="success" size="md" label="Web Components" deletable></rdc-chip>
-    <rdc-chip variant="warning" size="md" label="Design System" deletable></rdc-chip>
+    <rds-chip variant="primary" size="md" label="React" deletable></rds-chip>
+    <rds-chip variant="secondary" size="md" label="TypeScript" deletable></rds-chip>
+    <rds-chip variant="info" size="md" label="Stencil" deletable></rds-chip>
+    <rds-chip variant="success" size="md" label="Web Components" deletable></rds-chip>
+    <rds-chip variant="warning" size="md" label="Design System" deletable></rds-chip>
   </div>
 `;
 
 export const VariantsWithDelete = () => html`
   <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-    <rdc-chip variant="primary" label="Primary" deletable></rdc-chip>
-    <rdc-chip variant="secondary" label="Secondary" deletable></rdc-chip>
-    <rdc-chip variant="ghost" label="Ghost" deletable></rdc-chip>
-    <rdc-chip variant="danger" label="Danger" deletable></rdc-chip>
-    <rdc-chip variant="warning" label="Warning" deletable></rdc-chip>
-    <rdc-chip variant="success" label="Success" deletable></rdc-chip>
-    <rdc-chip variant="info" label="Info" deletable></rdc-chip>
+    <rds-chip variant="primary" label="Primary" deletable></rds-chip>
+    <rds-chip variant="secondary" label="Secondary" deletable></rds-chip>
+    <rds-chip variant="ghost" label="Ghost" deletable></rds-chip>
+    <rds-chip variant="danger" label="Danger" deletable></rds-chip>
+    <rds-chip variant="warning" label="Warning" deletable></rds-chip>
+    <rds-chip variant="success" label="Success" deletable></rds-chip>
+    <rds-chip variant="info" label="Info" deletable></rds-chip>
   </div>
 `;
 
 export const CustomCloseIcon = () => html`
   <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-    <rdc-chip variant="primary" label="Close X-Circle" deletable close-icon-name="x-circle"></rdc-chip>
-    <rdc-chip variant="secondary" label="Close X" deletable close-icon-name="x"></rdc-chip>
-    <rdc-chip variant="success" label="Close Check" deletable close-icon-name="check-circle"></rdc-chip>
-    <rdc-chip variant="danger" label="Close Trash" deletable close-icon-name="trash"></rdc-chip>
-    <rdc-chip variant="info" label="Close Square" deletable close-icon-name="x-square"></rdc-chip>
+    <rds-chip variant="primary" label="Close X-Circle" deletable close-icon-name="x-circle"></rds-chip>
+    <rds-chip variant="secondary" label="Close X" deletable close-icon-name="x"></rds-chip>
+    <rds-chip variant="success" label="Close Check" deletable close-icon-name="check-circle"></rds-chip>
+    <rds-chip variant="danger" label="Close Trash" deletable close-icon-name="trash"></rds-chip>
+    <rds-chip variant="info" label="Close Square" deletable close-icon-name="x-square"></rds-chip>
   </div>
 `;

@@ -65,7 +65,7 @@ export class RdsButton {
 
   private renderIcon() {
     if (!this.iconName) return null;
-    return <rdc-icon name={this.iconName} size={this.iconSize} color="inherit" class="button-icon"></rdc-icon>;
+    return <rds-icon name={this.iconName} size={this.iconSize} color="inherit" class="button-icon"></rds-icon>;
   }
 
   render() {

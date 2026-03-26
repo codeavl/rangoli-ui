@@ -2,7 +2,7 @@
 
 @use '../../styles/index' as *;
 
-rdc-icon {
+:host {
   display: inline-flex;
   align-items: center;
   justify-content: center;
