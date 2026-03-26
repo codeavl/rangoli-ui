@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css');
+
 :host {
   display: inline-block;
 }
@@ -6,6 +8,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   border-radius: var(--radius-md);
   border: 1px solid transparent;
   padding: var(--badge-padding-y-md) var(--badge-padding-x-md);
@@ -16,7 +19,25 @@
   color: inherit;
   user-select: none;
   white-space: nowrap;
+  min-height: 1.5rem;
 }
+
+.badge-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.125rem; /* Adjust for vertical centering */
+}
+
+.badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  height: 100%;
+}
+
+
 
 .badge.variant-primary {
   background: var(--color-primary-500);

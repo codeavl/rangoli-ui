@@ -24,6 +24,21 @@
 | `"wrapper"` |             |
 
 
+## Dependencies
+
+### Used by
+
+ - [rdc-badge](../badge)
+ - [rds-button](../button)
+
+### Graph
+```mermaid
+graph TD;
+  rdc-badge --> rdc-icon
+  rds-button --> rdc-icon
+  style rdc-icon fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

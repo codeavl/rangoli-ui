@@ -5,12 +5,12 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { BadgeSize, BadgeVariant } from "./components/badge/badge";
+import { BadgeSize, BadgeVariant, IconPlacement } from "./components/badge/badge";
 import { IconColor, IconSize } from "./components/icon/icon";
-import { ButtonSize, ButtonType, ButtonVariant } from "./components/button/button";
-export { BadgeSize, BadgeVariant } from "./components/badge/badge";
+import { ButtonSize, ButtonType, ButtonVariant, IconPlacement as IconPlacement1 } from "./components/button/button";
+export { BadgeSize, BadgeVariant, IconPlacement } from "./components/badge/badge";
 export { IconColor, IconSize } from "./components/icon/icon";
-export { ButtonSize, ButtonType, ButtonVariant } from "./components/button/button";
+export { ButtonSize, ButtonType, ButtonVariant, IconPlacement as IconPlacement1 } from "./components/button/button";
 export namespace Components {
     interface MyComponent {
         /**
@@ -27,6 +27,15 @@ export namespace Components {
         "middle": string;
     }
     interface RdcBadge {
+        /**
+          * Bootstrap icon name to display in the badge.
+         */
+        "iconName"?: string;
+        /**
+          * Icon placement position: before or after text.
+          * @default 'before'
+         */
+        "iconPlacement": IconPlacement;
         /**
           * Fallback text when no default slot is provided.
          */
@@ -78,6 +87,15 @@ export namespace Components {
           * @default false
          */
         "disabled": boolean;
+        /**
+          * Bootstrap icon name to display in the button.
+         */
+        "iconName"?: string;
+        /**
+          * Icon placement position: before or after text.
+          * @default 'before'
+         */
+        "iconPlacement": IconPlacement1;
         /**
           * Fallback text when no default slot is provided.
          */
@@ -160,6 +178,15 @@ declare namespace LocalJSX {
     }
     interface RdcBadge {
         /**
+          * Bootstrap icon name to display in the badge.
+         */
+        "iconName"?: string;
+        /**
+          * Icon placement position: before or after text.
+          * @default 'before'
+         */
+        "iconPlacement"?: IconPlacement;
+        /**
           * Fallback text when no default slot is provided.
          */
         "label"?: string;
@@ -211,6 +238,15 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * Bootstrap icon name to display in the button.
+         */
+        "iconName"?: string;
+        /**
+          * Icon placement position: before or after text.
+          * @default 'before'
+         */
+        "iconPlacement"?: IconPlacement1;
+        /**
           * Fallback text when no default slot is provided.
          */
         "label"?: string;
@@ -236,6 +272,8 @@ declare namespace LocalJSX {
         "variant": BadgeVariant;
         "size": BadgeSize;
         "label": string;
+        "iconName": string;
+        "iconPlacement": IconPlacement;
     }
     interface RdcIconAttributes {
         "name": string;
@@ -250,6 +288,8 @@ declare namespace LocalJSX {
         "disabled": boolean;
         "buttonType": ButtonType;
         "label": string;
+        "iconName": string;
+        "iconPlacement": IconPlacement;
     }
 
     interface IntrinsicElements {

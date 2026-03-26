@@ -1,9 +1,14 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css');
+
 :host {
   display: inline-block;
 }
 
 .btn {
   appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   border-radius: var(--radius-md);
   border: 1px solid transparent;
   padding: var(--button-padding-y-md) var(--button-padding-x-md);
@@ -30,6 +35,21 @@
 .btn:disabled {
   cursor: not-allowed;
   opacity: 0.6;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.125rem; /* Adjust for vertical centering */
+}
+
+.button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  height: 100%;
 }
 
 .btn.variant-primary {
