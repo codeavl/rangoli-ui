@@ -5,12 +5,12 @@ export type ChipSize = 'sm' | 'md' | 'lg';
 export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 @Component({
-  tag: 'rdc-chip',
+  tag: 'rds-chip',
   styleUrl: 'chip.scss',
   shadow: false,
   scoped: true,
 })
-export class RdcChip {
+export class RdsChip {
   /**
    * Visual style of the chip.
    */
@@ -44,7 +44,7 @@ export class RdcChip {
   /**
    * Event emitted when close button is clicked.
    */
-  @Event() rdcChipClose!: EventEmitter<void>;
+  @Event() rdsChipClose!: EventEmitter<void>;
 
   private get chipClass() {
     return `chip variant-${this.variant} size-${this.size}`;
@@ -65,10 +65,10 @@ export class RdcChip {
       <button
         class="chip-close"
         aria-label={this.closeAriaLabel}
-        onClick={() => this.rdcChipClose.emit()}
+        onClick={() => this.rdsChipClose.emit()}
         type="button"
       >
-        <rdc-icon name={this.closeIconName} size={this.closeIconSize} color="inherit"></rdc-icon>
+        <rds-icon name={this.closeIconName} size={this.closeIconSize} color="inherit"></rds-icon>
       </button>
     );
   }

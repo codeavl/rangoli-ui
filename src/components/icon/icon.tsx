@@ -4,12 +4,12 @@ export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type IconColor = 'primary' | 'secondary' | 'danger' | 'warning' | 'success' | 'info' | 'inherit';
 
 @Component({
-  tag: 'rdc-icon',
+  tag: 'rds-icon',
   styleUrl: 'icon.scss',
   shadow: false,
   scoped: true,
 })
-export class RdcIcon {
+export class RdsIcon {
   /**
    * The name of the bootstrap icon to display.
    * @example "heart", "check-circle", "bell-fill"

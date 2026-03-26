@@ -1,4 +1,4 @@
-# rdc-icon
+# rds-icon
 
 
 
@@ -28,17 +28,17 @@
 
 ### Used by
 
- - [rdc-badge](../badge)
- - [rdc-chip](../chip)
+ - [rds-badge](../badge)
  - [rds-button](../button)
+ - [rds-chip](../chip)
 
 ### Graph
 ```mermaid
 graph TD;
-  rdc-badge --> rdc-icon
-  rdc-chip --> rdc-icon
-  rds-button --> rdc-icon
-  style rdc-icon fill:#f9f,stroke:#333,stroke-width:4px
+  rds-badge --> rds-icon
+  rds-button --> rds-icon
+  rds-chip --> rds-icon
+  style rds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

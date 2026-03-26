@@ -3,7 +3,7 @@ import { html } from 'lit-html';
 
 const meta: Meta = {
   title: 'Components/Icon',
-  component: 'rdc-icon',
+  component: 'rds-icon',
   parameters: {
     layout: 'centered',
   },
@@ -53,7 +53,7 @@ export const Default: Story = {
     size: 'md',
     color: 'inherit',
   },
-  render: (args) => html`<rdc-icon name="${args.name}" size="${args.size}" color="${args.color}"></rdc-icon>`,
+  render: (args) => html`<rds-icon name="${args.name}" size="${args.size}" color="${args.color}"></rds-icon>`,
 };
 
 export const Sizes: Story = {
@@ -63,11 +63,11 @@ export const Sizes: Story = {
 
   render: () => html`
     <div style="display: flex; gap: 1rem; align-items: center;">
-      <rdc-icon name="heart" size="xs"></rdc-icon>
-      <rdc-icon name="heart" size="sm"></rdc-icon>
-      <rdc-icon name="heart" size="md"></rdc-icon>
-      <rdc-icon name="heart" size="lg"></rdc-icon>
-      <rdc-icon name="heart" size="xl"></rdc-icon>
+      <rds-icon name="heart" size="xs"></rds-icon>
+      <rds-icon name="heart" size="sm"></rds-icon>
+      <rds-icon name="heart" size="md"></rds-icon>
+      <rds-icon name="heart" size="lg"></rds-icon>
+      <rds-icon name="heart" size="xl"></rds-icon>
     </div>
   `
 };
@@ -75,11 +75,11 @@ export const Sizes: Story = {
 export const Colors: Story = {
   render: () => html`
     <div style="display: flex; gap: 1rem; align-items: center;">
-      <rdc-icon name="check-circle-fill" size="lg" color="primary"></rdc-icon>
-      <rdc-icon name="exclamation-triangle-fill" size="lg" color="warning"></rdc-icon>
-      <rdc-icon name="x-circle-fill" size="lg" color="danger"></rdc-icon>
-      <rdc-icon name="info-circle-fill" size="lg" color="info"></rdc-icon>
-      <rdc-icon name="check2-circle" size="lg" color="success"></rdc-icon>
+      <rds-icon name="check-circle-fill" size="lg" color="primary"></rds-icon>
+      <rds-icon name="exclamation-triangle-fill" size="lg" color="warning"></rds-icon>
+      <rds-icon name="x-circle-fill" size="lg" color="danger"></rds-icon>
+      <rds-icon name="info-circle-fill" size="lg" color="info"></rds-icon>
+      <rds-icon name="check2-circle" size="lg" color="success"></rds-icon>
     </div>
   `,
 };
@@ -88,27 +88,27 @@ export const CommonIcons: Story = {
   render: () => html`
     <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-        <rdc-icon name="heart-fill" size="lg" color="primary"></rdc-icon>
+        <rds-icon name="heart-fill" size="lg" color="primary"></rds-icon>
         <span style="font-size: 0.875rem;">heart</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-        <rdc-icon name="star-fill" size="lg" color="primary"></rdc-icon>
+        <rds-icon name="star-fill" size="lg" color="primary"></rds-icon>
         <span style="font-size: 0.875rem;">star</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-        <rdc-icon name="bell" size="lg" color="inherit"></rdc-icon>
+        <rds-icon name="bell" size="lg" color="inherit"></rds-icon>
         <span style="font-size: 0.875rem;">bell</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-        <rdc-icon name="gear" size="lg" color="inherit"></rdc-icon>
+        <rds-icon name="gear" size="lg" color="inherit"></rds-icon>
         <span style="font-size: 0.875rem;">settings</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-        <rdc-icon name="search" size="lg" color="inherit"></rdc-icon>
+        <rds-icon name="search" size="lg" color="inherit"></rds-icon>
         <span style="font-size: 0.875rem;">search</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-        <rdc-icon name="trash" size="lg" color="danger"></rdc-icon>
+        <rds-icon name="trash" size="lg" color="danger"></rds-icon>
         <span style="font-size: 0.875rem;">delete</span>
       </div>
     </div>
@@ -123,6 +123,6 @@ export const WithAriaLabel: Story = {
     ariaLabel: 'Like this',
   },
   render: (args) => html`
-    <rdc-icon name="${args.name}" size="${args.size}" color="${args.color}" aria-label="${args.ariaLabel}"></rdc-icon>
+    <rds-icon name="${args.name}" size="${args.size}" color="${args.color}" aria-label="${args.ariaLabel}"></rds-icon>
   `,
 };

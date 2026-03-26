@@ -1,4 +1,4 @@
-# rdc-chip
+# rds-chip
 
 Chip component for displaying small, inline elements with optional close/delete functionality. Useful for tags, filters, and selection items.
 
@@ -21,7 +21,7 @@ Chip component for displaying small, inline elements with optional close/delete 
 
 | Event          | Description                                 | Type                |
 | -------------- | ------------------------------------------- | ------------------- |
-| `rdcChipClose` | Event emitted when close button is clicked. | `CustomEvent<void>` |
+| `rdsChipClose` | Event emitted when close button is clicked. | `CustomEvent<void>` |
 
 
 ## Shadow Parts
@@ -35,13 +35,13 @@ Chip component for displaying small, inline elements with optional close/delete 
 
 ### Depends on
 
-- [rdc-icon](../icon)
+- [rds-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  rdc-chip --> rdc-icon
-  style rdc-chip fill:#f9f,stroke:#333,stroke-width:4px
+  rds-chip --> rds-icon
+  style rds-chip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

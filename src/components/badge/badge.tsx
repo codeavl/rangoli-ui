@@ -6,12 +6,12 @@ export type IconPlacement = 'before' | 'after';
 export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 @Component({
-  tag: 'rdc-badge',
+  tag: 'rds-badge',
   styleUrl: 'badge.scss',
   shadow: false,
   scoped: true,
 })
-export class RdcBadge {
+export class RdsBadge {
   /**
    * Visual style of the badge.
    */
@@ -52,7 +52,7 @@ export class RdcBadge {
 
   private renderIcon() {
     if (!this.iconName) return null;
-    return <rdc-icon name={this.iconName} size={this.iconSize} color="inherit" class="badge-icon"></rdc-icon>;
+    return <rds-icon name={this.iconName} size={this.iconSize} color="inherit" class="badge-icon"></rds-icon>;
   }
 
   render() {
