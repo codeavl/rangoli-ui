@@ -9,10 +9,12 @@ import { BadgeSize, BadgeVariant, IconPlacement } from "./components/badge/badge
 import { ChipSize, ChipVariant } from "./components/chip/chip";
 import { IconColor, IconSize } from "./components/icon/icon";
 import { ButtonSize, ButtonType, ButtonVariant, IconPlacement as IconPlacement1 } from "./components/button/button";
+import { ButtonGroupOrientation, ButtonGroupSize } from "./components/button-group/button-group";
 export { BadgeSize, BadgeVariant, IconPlacement } from "./components/badge/badge";
 export { ChipSize, ChipVariant } from "./components/chip/chip";
 export { IconColor, IconSize } from "./components/icon/icon";
 export { ButtonSize, ButtonType, ButtonVariant, IconPlacement as IconPlacement1 } from "./components/button/button";
+export { ButtonGroupOrientation, ButtonGroupSize } from "./components/button-group/button-group";
 export namespace Components {
     interface MyComponent {
         /**
@@ -144,6 +146,27 @@ export namespace Components {
          */
         "variant": ButtonVariant;
     }
+    interface RdsButtonGroup {
+        /**
+          * Whether the button group should be disabled.
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Optional label for the button group (for accessibility).
+         */
+        "label"?: string;
+        /**
+          * Orientation of the button group.
+          * @default 'horizontal'
+         */
+        "orientation": ButtonGroupOrientation;
+        /**
+          * Size of buttons in the group.
+          * @default 'md'
+         */
+        "size": ButtonGroupSize;
+    }
 }
 export interface RdcChipCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -206,12 +229,19 @@ declare global {
         prototype: HTMLRdsButtonElement;
         new (): HTMLRdsButtonElement;
     };
+    interface HTMLRdsButtonGroupElement extends Components.RdsButtonGroup, HTMLStencilElement {
+    }
+    var HTMLRdsButtonGroupElement: {
+        prototype: HTMLRdsButtonGroupElement;
+        new (): HTMLRdsButtonGroupElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "rdc-badge": HTMLRdcBadgeElement;
         "rdc-chip": HTMLRdcChipElement;
         "rdc-icon": HTMLRdcIconElement;
         "rds-button": HTMLRdsButtonElement;
+        "rds-button-group": HTMLRdsButtonGroupElement;
     }
 }
 declare namespace LocalJSX {
@@ -352,6 +382,27 @@ declare namespace LocalJSX {
          */
         "variant"?: ButtonVariant;
     }
+    interface RdsButtonGroup {
+        /**
+          * Whether the button group should be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Optional label for the button group (for accessibility).
+         */
+        "label"?: string;
+        /**
+          * Orientation of the button group.
+          * @default 'horizontal'
+         */
+        "orientation"?: ButtonGroupOrientation;
+        /**
+          * Size of buttons in the group.
+          * @default 'md'
+         */
+        "size"?: ButtonGroupSize;
+    }
 
     interface MyComponentAttributes {
         "first": string;
@@ -389,6 +440,12 @@ declare namespace LocalJSX {
         "iconName": string;
         "iconPlacement": IconPlacement;
     }
+    interface RdsButtonGroupAttributes {
+        "orientation": ButtonGroupOrientation;
+        "size": ButtonGroupSize;
+        "label": string;
+        "disabled": boolean;
+    }
 
     interface IntrinsicElements {
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
@@ -396,6 +453,7 @@ declare namespace LocalJSX {
         "rdc-chip": Omit<RdcChip, keyof RdcChipAttributes> & { [K in keyof RdcChip & keyof RdcChipAttributes]?: RdcChip[K] } & { [K in keyof RdcChip & keyof RdcChipAttributes as `attr:${K}`]?: RdcChipAttributes[K] } & { [K in keyof RdcChip & keyof RdcChipAttributes as `prop:${K}`]?: RdcChip[K] };
         "rdc-icon": Omit<RdcIcon, keyof RdcIconAttributes> & { [K in keyof RdcIcon & keyof RdcIconAttributes]?: RdcIcon[K] } & { [K in keyof RdcIcon & keyof RdcIconAttributes as `attr:${K}`]?: RdcIconAttributes[K] } & { [K in keyof RdcIcon & keyof RdcIconAttributes as `prop:${K}`]?: RdcIcon[K] } & OneOf<"name", RdcIcon["name"], RdcIconAttributes["name"]>;
         "rds-button": Omit<RdsButton, keyof RdsButtonAttributes> & { [K in keyof RdsButton & keyof RdsButtonAttributes]?: RdsButton[K] } & { [K in keyof RdsButton & keyof RdsButtonAttributes as `attr:${K}`]?: RdsButtonAttributes[K] } & { [K in keyof RdsButton & keyof RdsButtonAttributes as `prop:${K}`]?: RdsButton[K] };
+        "rds-button-group": Omit<RdsButtonGroup, keyof RdsButtonGroupAttributes> & { [K in keyof RdsButtonGroup & keyof RdsButtonGroupAttributes]?: RdsButtonGroup[K] } & { [K in keyof RdsButtonGroup & keyof RdsButtonGroupAttributes as `attr:${K}`]?: RdsButtonGroupAttributes[K] } & { [K in keyof RdsButtonGroup & keyof RdsButtonGroupAttributes as `prop:${K}`]?: RdsButtonGroup[K] };
     }
 }
 export { LocalJSX as JSX };
@@ -407,6 +465,7 @@ declare module "@stencil/core" {
             "rdc-chip": LocalJSX.IntrinsicElements["rdc-chip"] & JSXBase.HTMLAttributes<HTMLRdcChipElement>;
             "rdc-icon": LocalJSX.IntrinsicElements["rdc-icon"] & JSXBase.HTMLAttributes<HTMLRdcIconElement>;
             "rds-button": LocalJSX.IntrinsicElements["rds-button"] & JSXBase.HTMLAttributes<HTMLRdsButtonElement>;
+            "rds-button-group": LocalJSX.IntrinsicElements["rds-button-group"] & JSXBase.HTMLAttributes<HTMLRdsButtonGroupElement>;
         }
     }
 }
