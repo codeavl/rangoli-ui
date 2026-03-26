@@ -5,10 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
 
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
+
     <script type="module" src="/build/rangoli-ui.esm.js"></script>
     <script nomodule src="/build/rangoli-ui.js"></script>
+
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+          'Helvetica Neue', sans-serif;
+        padding: 2rem;
+      }
+      .demo-section {
+        margin: 2rem 0;
+      }
+      .icon-grid {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+    </style>
   </head>
   <body>
-    <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+    <h1>Rangoli UI Components</h1>
+
+    <div class="demo-section">
+      <h2>Icon Component Demo</h2>
+      <div class="icon-grid">
+        <rdc-icon name="heart-fill" size="lg" color="danger"></rdc-icon>
+        <rdc-icon name="star-fill" size="lg" color="primary"></rdc-icon>
+        <rdc-icon name="check-circle-fill" size="lg" color="success"></rdc-icon>
+        <rdc-icon name="exclamation-triangle-fill" size="lg" color="warning"></rdc-icon>
+        <rdc-icon name="info-circle-fill" size="lg" color="info"></rdc-icon>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Icon Sizes</h2>
+      <div class="icon-grid">
+        <rdc-icon name="heart" size="xs"></rdc-icon>
+        <rdc-icon name="heart" size="sm"></rdc-icon>
+        <rdc-icon name="heart" size="md"></rdc-icon>
+        <rdc-icon name="heart" size="lg"></rdc-icon>
+        <rdc-icon name="heart" size="xl"></rdc-icon>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>Button with Icon</h2>
+      <rds-button variant="primary">
+        <rdc-icon name="heart-fill"></rdc-icon>
+        Like
+      </rds-button>
+    </div>
+
+    <div class="demo-section">
+      <h2>Original Component</h2>
+      <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+    </div>
   </body>
 </html>
+

@@ -6,8 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BadgeSize, BadgeVariant } from "./components/badge/badge";
+import { IconColor, IconSize } from "./components/icon/icon";
 import { ButtonSize, ButtonType, ButtonVariant } from "./components/button/button";
 export { BadgeSize, BadgeVariant } from "./components/badge/badge";
+export { IconColor, IconSize } from "./components/icon/icon";
 export { ButtonSize, ButtonType, ButtonVariant } from "./components/button/button";
 export namespace Components {
     interface MyComponent {
@@ -39,6 +41,31 @@ export namespace Components {
           * @default 'primary'
          */
         "variant": BadgeVariant;
+    }
+    interface RdcIcon {
+        /**
+          * ARIA label for accessibility.
+         */
+        "ariaLabel"?: string;
+        /**
+          * Custom CSS class to apply to the icon.
+         */
+        "class"?: string;
+        /**
+          * Icon color variant.
+          * @default 'inherit'
+         */
+        "color": IconColor;
+        /**
+          * The name of the bootstrap icon to display.
+          * @example "heart", "check-circle", "bell-fill"
+         */
+        "name": string;
+        /**
+          * Icon size.
+          * @default 'md'
+         */
+        "size": IconSize;
     }
     interface RdsButton {
         /**
@@ -84,6 +111,12 @@ declare global {
         prototype: HTMLRdcBadgeElement;
         new (): HTMLRdcBadgeElement;
     };
+    interface HTMLRdcIconElement extends Components.RdcIcon, HTMLStencilElement {
+    }
+    var HTMLRdcIconElement: {
+        prototype: HTMLRdcIconElement;
+        new (): HTMLRdcIconElement;
+    };
     interface HTMLRdsButtonElementEventMap {
         "rdsButtonClick": void;
     }
@@ -104,10 +137,13 @@ declare global {
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "rdc-badge": HTMLRdcBadgeElement;
+        "rdc-icon": HTMLRdcIconElement;
         "rds-button": HTMLRdsButtonElement;
     }
 }
 declare namespace LocalJSX {
+    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
+
     interface MyComponent {
         /**
           * The first name
@@ -137,6 +173,31 @@ declare namespace LocalJSX {
           * @default 'primary'
          */
         "variant"?: BadgeVariant;
+    }
+    interface RdcIcon {
+        /**
+          * ARIA label for accessibility.
+         */
+        "ariaLabel"?: string;
+        /**
+          * Custom CSS class to apply to the icon.
+         */
+        "class"?: string;
+        /**
+          * Icon color variant.
+          * @default 'inherit'
+         */
+        "color"?: IconColor;
+        /**
+          * The name of the bootstrap icon to display.
+          * @example "heart", "check-circle", "bell-fill"
+         */
+        "name": string;
+        /**
+          * Icon size.
+          * @default 'md'
+         */
+        "size"?: IconSize;
     }
     interface RdsButton {
         /**
@@ -176,6 +237,13 @@ declare namespace LocalJSX {
         "size": BadgeSize;
         "label": string;
     }
+    interface RdcIconAttributes {
+        "name": string;
+        "size": IconSize;
+        "color": IconColor;
+        "class": string;
+        "ariaLabel": string;
+    }
     interface RdsButtonAttributes {
         "variant": ButtonVariant;
         "size": ButtonSize;
@@ -187,6 +255,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
         "rdc-badge": Omit<RdcBadge, keyof RdcBadgeAttributes> & { [K in keyof RdcBadge & keyof RdcBadgeAttributes]?: RdcBadge[K] } & { [K in keyof RdcBadge & keyof RdcBadgeAttributes as `attr:${K}`]?: RdcBadgeAttributes[K] } & { [K in keyof RdcBadge & keyof RdcBadgeAttributes as `prop:${K}`]?: RdcBadge[K] };
+        "rdc-icon": Omit<RdcIcon, keyof RdcIconAttributes> & { [K in keyof RdcIcon & keyof RdcIconAttributes]?: RdcIcon[K] } & { [K in keyof RdcIcon & keyof RdcIconAttributes as `attr:${K}`]?: RdcIconAttributes[K] } & { [K in keyof RdcIcon & keyof RdcIconAttributes as `prop:${K}`]?: RdcIcon[K] } & OneOf<"name", RdcIcon["name"], RdcIconAttributes["name"]>;
         "rds-button": Omit<RdsButton, keyof RdsButtonAttributes> & { [K in keyof RdsButton & keyof RdsButtonAttributes]?: RdsButton[K] } & { [K in keyof RdsButton & keyof RdsButtonAttributes as `attr:${K}`]?: RdsButtonAttributes[K] } & { [K in keyof RdsButton & keyof RdsButtonAttributes as `prop:${K}`]?: RdsButton[K] };
     }
 }
@@ -196,6 +265,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "rdc-badge": LocalJSX.IntrinsicElements["rdc-badge"] & JSXBase.HTMLAttributes<HTMLRdcBadgeElement>;
+            "rdc-icon": LocalJSX.IntrinsicElements["rdc-icon"] & JSXBase.HTMLAttributes<HTMLRdcIconElement>;
             "rds-button": LocalJSX.IntrinsicElements["rds-button"] & JSXBase.HTMLAttributes<HTMLRdsButtonElement>;
         }
     }
