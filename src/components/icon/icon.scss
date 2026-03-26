@@ -1,0 +1,82 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css');
+
+@use '../../styles/index' as *;
+
+rdc-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.icon i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon.size-xs {
+  font-size: 0.75rem;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.icon.size-sm {
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon.size-md {
+  font-size: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.icon.size-lg {
+  font-size: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon.size-xl {
+  font-size: 2rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon.color-primary {
+  color: var(--color-primary-500);
+}
+
+.icon.color-secondary {
+  color: var(--color-secondary-500);
+}
+
+.icon.color-danger {
+  color: var(--color-danger-600);
+}
+
+.icon.color-warning {
+  color: var(--color-warning-500);
+}
+
+.icon.color-success {
+  color: var(--color-success-500);
+}
+
+.icon.color-info {
+  color: var(--color-info-500);
+}
+
+.icon.color-inherit {
+  color: inherit;
+}
+

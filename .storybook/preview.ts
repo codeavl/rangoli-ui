@@ -1,3 +1,6 @@
+// Import Bootstrap Icons CSS
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 // Import global design tokens
 import '../dist/rangoli-ui/rangoli-ui.css';
 
